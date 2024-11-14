@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Estilo básico y centrado de la página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #212529;
+            color: gray;
+        }
+
+        /* Contenedor centrado */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Estilo de la tarjeta */
+        .card {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: gray;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-image {
+            width: 100px;
+            height: 100px;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: gray;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: gray;
+            margin-bottom: 15px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .card-title {
+                font-size: 1.3em;
+            }
+
+            .card-description {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+
+            .card-description {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+
+    <title>Opps! No Tienes Red</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="img/logo.png" alt="Imagen de ejemplo" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">Opps! No Tienes Red</h2>
+                <p class="card-description">En este momento no cuentas con acceso a la red, vuelve más tarde.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

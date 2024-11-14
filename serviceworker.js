@@ -1,9 +1,10 @@
 //Crear la varieble de cache
-const currentCache = "cacheWiki-v1.0";
+const currentCache = "cacheWiki-v1.7";
 
 const files = [
     "/",
     "index.html",
+    "offline.html",
     "img/logo.png",
     "css/estilo_01.css",
     "css/estilo_02.css"
@@ -31,7 +32,8 @@ self.addEventListener("fetch", event => {
         } catch (error) {
             //Cuando el internet falle, el disposiivo esta offline
             const cache = await caches.open(currentCache);
-            const cachedResponse = await cache.match("/offline");
+            const cachedResponse = await cache.match("offline.html");
+            return cachedResponse || new Response("Pagina offline no disponible", { status: 503 });
             return cachedResponse;
         }
     }

@@ -1,7 +1,9 @@
 {
+    "scope": ".",
     "name": "Wiki Left 4 Dead",
     "short_name": "Wiki L4D",
     "start_url": "index.html",
+    "id": "/Wiki_L4D/index.html",
     "display": "standalone",
     "background_color": "#00000040",
     "theme_color": "#808080",
