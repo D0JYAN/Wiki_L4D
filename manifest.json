@@ -1,0 +1,16 @@
+{
+    "name": "Wiki Left 4 Dead",
+    "short_name": "Wiki L4D",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#00000040",
+    "theme_color": "#808080",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "img/logo.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        }
+    ]
+}
