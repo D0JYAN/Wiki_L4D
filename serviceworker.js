@@ -1,6 +1,6 @@
 //Crear la varieble de cache
-const currentCache = "cacheWiki-v1.7";
-
+const currentCache = "cacheWiki-v1.8";
+//Archivos para almacenar
 const files = [
     "/",
     "index.html",
@@ -9,7 +9,6 @@ const files = [
     "css/estilo_01.css",
     "css/estilo_02.css"
 ];
-
 //Instalar el Service Worker y cachear los recursos
 self.addEventListener("install", event => {
     async function preCacheResources() {
@@ -20,7 +19,6 @@ self.addEventListener("install", event => {
     }
     event.waitUntil(preCacheResources());
 });
-
 //Interceptar solicitudes y responder con caché o red: 
 //monitorea cuando el usuario pide un recurso.
 self.addEventListener("fetch", event => {
@@ -34,17 +32,14 @@ self.addEventListener("fetch", event => {
             const cache = await caches.open(currentCache);
             const cachedResponse = await cache.match("offline.html");
             return cachedResponse || new Response("Pagina offline no disponible", { status: 503 });
-            return cachedResponse;
         }
     }
-
     //Solo llama a event.respondWith() si se trata de una solicitud de navegación
     //para una página HTML.
     if(event.request.mode === 'navigate') {
         event.respondWith(navigateOrDisplayOfflinePage());
     }
 });
-
 //Activar el Service Worker y eliminar cachés viejos
 self.addEventListener("activate", event => {
     async function deleteOldCaches() {
