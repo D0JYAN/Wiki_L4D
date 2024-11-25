@@ -1,5 +1,5 @@
 //Crear la varieble de cache
-const currentCache = "cacheWiki-v1.8";
+const currentCache = "cacheWiki-v1.9";
 //Archivos para almacenar
 const files = [
     "/",

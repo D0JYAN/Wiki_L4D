@@ -133,13 +133,58 @@
                     console.log('Fallo en el registro del Service Worker:', error);
                 });
         }
-
         window.addEventListener("online", function () {
             console.log("Estas en linea!");
         });
-
         window.addEventListener("offline", function () {
             console.log("No tienes conexion a internet!");
+        });
+    </script>
+
+    <script>
+        /*Notificaciones*/
+
+        //Pedir permiso para notificaciones
+        function allowedNotifications() {
+            if (!("Notification" in window)) {
+                console.log("Notificaciones no soportadas en el navegador");
+                return;
+            }
+            //Solicitar permiso al usuario
+            Notification.requestPermission()
+                .then(permission => {
+                    if (permission === "granted") {
+                        console.log("Permisos para las notificaciones aceptados");
+                    } else {
+                        console.log("Permisos para las notificaciones denegados");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al solicitar permiso para notificaciones:", error);
+                });
+        }
+        //Mostrar notificaciones
+        function showNotifications(title, options) {
+            if (Notification.permission === "granted") {
+                const notification = new Notification(title, options);
+                // Manejar eventos como clicks en la notificación
+                notification.onclick = () => {
+                    console.log("La notificación fue clickeada");
+                };
+            } else {
+                console.log("No se pueden mostrar notificaciones porque el permiso no fue concedido.");
+            }
+        }
+        //Ejecutar la función para pedir permiso al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            allowedNotifications();
+            //Mostrar una notificación de prueba
+            setTimeout(() => {
+                showNotifications("¡Que Tal!", {
+                    body: "Has recibido una nueva notificación de Wiki L4D.",
+                    icon: "img/logo.png"
+                });
+            }, 3000);//Retraso de tres segundos para que la pagina cargue bien
         });
     </script>
 </body>
