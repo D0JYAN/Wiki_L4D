@@ -83,6 +83,12 @@
 
     </div>
 
+    <!--Notificacion de vienvenida-->
+    <dialog id="mi-dialogo">
+        <p>Hola Vienvenido A La Wiki De L4D</p>
+        <button id="cerrar-dialogo">Cerrar</button>
+    </dialog>
+
     <!--Contenido-->
     <div class="container text-center">
         <div class="row">
@@ -165,26 +171,20 @@
         }
         //Mostrar notificaciones
         function showNotifications(title, options) {
-            if (Notification.permission === "granted") {
-                const notification = new Notification(title, options);
-                // Manejar eventos como clicks en la notificación
-                notification.onclick = () => {
-                    console.log("La notificación fue clickeada");
-                };
-            } else {
-                console.log("No se pueden mostrar notificaciones porque el permiso no fue concedido.");
-            }
+            document.getElementById('mi-dialogo').showModal();
         }
         //Ejecutar la función para pedir permiso al cargar la página
         document.addEventListener("DOMContentLoaded", () => {
             allowedNotifications();
             //Mostrar una notificación de prueba
             setTimeout(() => {
-                showNotifications("¡Que Tal!", {
-                    body: "Has recibido una nueva notificación de Wiki L4D.",
-                    icon: "img/logo.png"
-                });
+                showNotifications();
             }, 3000);//Retraso de tres segundos para que la pagina cargue bien
+        });
+
+        //Cerrar el dialogo
+        document.getElementById('cerrar-dialogo').addEventListener('click', () => 
+            { document.getElementById('mi-dialogo').close(); 
         });
     </script>
 </body>

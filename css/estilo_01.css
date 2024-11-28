@@ -11,6 +11,16 @@ body {
     height: 100%;
 }
 
+#mi-dialogo {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    background-color: aliceblue;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
 .container {
     margin-top: 15px;
     margin-bottom: 15px;
